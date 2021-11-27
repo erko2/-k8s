@@ -1,1 +1,1 @@
-# Kubernetes- Cluster installation steps
+# This repository contains installation guides, templates, scripts from my DevOps experience. 
