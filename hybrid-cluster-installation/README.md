@@ -57,7 +57,7 @@ Search for "multiplexing/broadcast all" options on your terminal emulator softwa
  On the config file find
              SystemdCgroup = false
      and change it to :
-          #   SystemdCgroup = true
+             SystemdCgroup = true
 ```              
     sudo nano /etc/containerd/config.toml
 ```
