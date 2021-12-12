@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azureotherapp-deploy
+  namespace: app 
+spec:
+  selector:
+    matchLabels:
+      app: azureotherapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azureotherapp
+    spec:
+      containers:
+      - name: azureotherapp
+        image: kodeval/azureotherapp
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: azureotherapp-svc
+  namespace: app
+spec:
+  selector:
+    app: azureotherapp
+  ports:
+  - port: 80
+  type: ClusterIP # LoadBalancer # NodePort #  
