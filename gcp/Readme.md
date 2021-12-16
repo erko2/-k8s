@@ -1,1 +1,0 @@
-#kubernetes deployment samples on Google Cloud Platform kubernetes cluster.
