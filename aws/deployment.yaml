@@ -6,32 +6,32 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: awsgolangapp-deploy
+  name: awsotherapp-deploy
   namespace: app 
 spec:
   selector:
     matchLabels:
-      app: awsgolangapp
+      app: awsotherapp
   replicas: 1
   template:
     metadata:
       labels:
-        app: awsgolangapp
+        app: awsotherapp
     spec:
       containers:
-      - name: awsgolangapp
-        image: kodeval/awsgolangapp
+      - name: awsotherapp
+        image: kodeval/awsotherapp
         ports:
         - containerPort: 80
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: awsgolangapp-svc
+  name: awsotherapp-svc
   namespace: app
 spec:
   selector:
-    app: awsgolangapp
+    app: awsotherapp
   ports:
   - port: 80
   type: ClusterIP # LoadBalancer # NodePort # 
@@ -65,39 +65,6 @@ metadata:
 spec:
   selector:
     app: awsgolangapp
-  ports:
-  - port: 80
-  type: ClusterIP # LoadBalancer # NodePort # 
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: awsdefaultapp-deploy
-  namespace: app 
-spec:
-  selector:
-    matchLabels:
-      app: awsdefaultapp
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: awsdefaultapp
-    spec:
-      containers:
-      - name: awsdefaultapp
-        image: kodeval/awsdefaultapp
-        ports:
-        - containerPort: 80
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: awsdefaultapp-svc
-  namespace: app
-spec:
-  selector:
-    app: awsdefaultapp
   ports:
   - port: 80
   type: ClusterIP # LoadBalancer # NodePort # 
